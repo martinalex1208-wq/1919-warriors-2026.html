@@ -128,6 +128,7 @@
     opacity: 0.85;
     max-width: 600px;
     margin: 0 auto 2rem;
+    text-wrap: balance;
   }
 
   .hero-stats {
@@ -625,7 +626,9 @@
   .rider-right { background: rgba(46,139,213,0.3); border: 2px dashed #7ec8f5; margin-top: 18px; }
 
   /* ── HOTEL TABLE ── */
-  .hotel-table { width: 100%; border-collapse: collapse; }
+  .hotel-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .hotel-table th:nth-child(2), .hotel-table td:nth-child(2) { width: 35%; }
+  .hotel-table th:nth-child(3), .hotel-table td:nth-child(3) { width: 45%; }
   .hotel-table th {
     background: var(--navy);
     color: white;
@@ -697,6 +700,8 @@
     .risk-row { grid-template-columns: 1fr; }
     .hero-stats { gap: 1.5rem; }
     .formation-grid { grid-template-columns: repeat(3, 1fr); }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .section { padding: 3rem 1.25rem; }
   }
 
   /* ── PRINT / ANCHOR OFFSET ── */
@@ -734,7 +739,7 @@
 <section id="hero">
   <div class="hero-tag">2026 單車環台 · 完整勇士手冊</div>
   <h1>我們在乎，<br><span>所以我們在。</span></h1>
-  <p>1919 勇士，不是一場單車活動，而是一群人，選擇用行動回應急難家庭的需要。</p>
+  <p>1919 勇士，不是一場單車活動，<br>而是一群人，選擇用行動回應急難家庭的需要。</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">15</div><div class="label">天環台旅程</div></div>
     <div class="hero-stat"><div class="num">1300</div><div class="label">公里</div></div>
@@ -880,7 +885,7 @@
       <p class="section-subtitle">用行動回應使命 · 每一種參與方式，都是真實的勇士</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-3">
       <div class="story-card">
@@ -937,7 +942,7 @@
       <p class="section-subtitle">1919，不只是一趟騎車的旅程。它是一段為了他人而前行的路。<br>我們希望每一位加入的勇士，都能自在參與、沒有壓力，卻願意負責任地走完全程。</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-2" style="gap:1.5rem;">
       <div class="card">
@@ -1041,7 +1046,7 @@
       <p class="section-subtitle">守時，是對彼此最基本的在乎。不浪費別人的光陰，是 1919 車隊最基本的紀律。一個人遲到，影響的是整個團隊。</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
       <div class="rule-item">
@@ -1100,7 +1105,7 @@
       <p class="section-subtitle">2026/12/19 – 2027/1/2 · 我們不比快、不硬撐，15 天都穩穩完成使命。</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-2" style="gap:1.5rem;margin-bottom:2rem;">
       <div>
@@ -1156,7 +1161,7 @@
       <h2 class="section-title">怎麼並肩騎，才能一起平安</h2>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-2" style="gap:2rem;align-items:start;">
       <div>
@@ -1235,7 +1240,7 @@
         </div>
       </div>
     </div></div>
-    <div style="margin-top:3rem;">
+    <div style="max-width:1200px;margin:3rem auto 0;padding:0 2rem;">
       <h3 style="font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:1rem;">關於飲酒，我們希望你理解這件事</h3>
       <div style="background:#fff5f5;border:2px solid #fecaca;border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;">
         <p style="font-size:0.9rem;font-weight:700;color:#991b1b;">1919 環島行動期間，我們希望所有勇士避免在公開場合飲酒。</p>
@@ -1267,7 +1272,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div><!-- end drinking wrapper -->
 
 </div>
 
@@ -1286,7 +1291,7 @@
       <p class="section-subtitle">電輔車的管理，不是允不允許的問題，而是「如何確保整體車隊安全」的問題。</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-3" style="margin-bottom:1.5rem;">
       <div class="card card-blue" style="text-align:center;">
@@ -1357,7 +1362,7 @@
       <p class="section-subtitle">1919 愛走動｜A4 手冊版</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-2" style="gap:2rem;">
       <div>
@@ -1429,7 +1434,7 @@
       <p class="section-subtitle">核心原則：省力、安全、團隊、完成</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-3" style="margin-bottom:2rem;">
       <div class="ride-card">
@@ -1484,7 +1489,7 @@
       <p class="section-subtitle">不是要嚇你，是希望每個人都平安回家。</p>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div style="display:flex;flex-direction:column;gap:1.5rem;">
       <div>
@@ -1584,7 +1589,7 @@
       <h2 class="section-title">2026 年 1919 愛走動｜單車環台行程規劃重點</h2>
     </div>
     <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
-</div>
+    </div>
 
     <div class="grid-3" style="margin-bottom:2rem;">
       <div class="card">
@@ -1638,8 +1643,8 @@
 
     <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;">五、住宿優先策略（逆時針順序）</h3>
     <p style="font-size:0.85rem;color:var(--gray);margin-bottom:1rem;">原則：先訂飯店 → 再微調路線。不為距離犧牲整體體驗與士氣。</p>
-    <div style="background:white;border-radius:var(--radius);border:1.5px solid #e5e7eb;overflow:hidden;">
-      <table class="hotel-table">
+    <div style="background:white;border-radius:var(--radius);border:1.5px solid #e5e7eb;overflow:hidden;overflow-x:auto;">
+      <table class="hotel-table" style="min-width:480px;">
         <thead>
           <tr>
             <th>#</th>
