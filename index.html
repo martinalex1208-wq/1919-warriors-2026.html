@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1919 愛走動｜單車環台勇士完整手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a6bb5;
+    --blue-light: #e8f2fb;
+    --blue-mid: #2d8dd6;
+    --navy: #0d2a4a;
+    --gold: #c8902a;
+    --warm: #ece8e2;
+  --white: #f7f4f0;
+    --gray: #6b7280;
+    --gray-light: #f3f4f6;
+    --text: #1a1a1a;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text);
+    background: var(--warm);
+    line-height: 1.7;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,244,240,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 0.8rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a4a7a 60%, var(--blue) 100%);
+    color: white;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  #hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  #hero h1 span {
+    color: #7ec8f5;
+  }
+
+  #hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #7ec8f5;
+    line-height: 1;
+  }
+
+  .hero-stat .label {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  /* ── TOC ── */
+  .toc-section {
+    background: #e4dfd7;
+    border-bottom: 1px solid #d4cdc4;
+    padding: 2rem;
+  }
+
+  .toc-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .toc-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    border: 1.5px solid #e5e7eb;
+    transition: all 0.2s;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .toc-card:hover {
+    border-color: var(--blue);
+    background: var(--blue-light);
+    color: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26,107,181,0.1);
+  }
+
+  .toc-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION COMMON ── */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  /* ── HOME BUTTON ── */
+  .section-header {
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .section-header-text {
+    flex: 1;
+  }
+
+  .home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    border: 1.5px solid #bcd9f0;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+    opacity: 0.45;
+    transition: opacity 0.2s, background 0.2s, transform 0.2s;
+  }
+
+  .home-btn:hover {
+    opacity: 1;
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+    transform: translateY(-2px);
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .section-subtitle {
+    margin-top: 0.5rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+  }
+
+  .divider {
+    border: none;
+    border-top: 2px solid #e5e7eb;
+    margin: 0;
+  }
+
+  .bg-warm { background: var(--warm); }
+  .bg-white { background: white; }
+  .bg-navy { background: var(--navy); }
+  .bg-blue-light { background: var(--blue-light); }
+
+  /* ── CARDS ── */
+  .card {
+    background: #f7f4f0;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border: 1.5px solid #ddd8d0;
+    transition: box-shadow 0.2s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+
+  .card-blue {
+    background: var(--blue-light);
+    border-color: #bcd9f0;
+  }
+
+  .card-navy {
+    background: var(--navy);
+    color: white;
+    border-color: transparent;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+
+  /* ── QUOTE ── */
+  .big-quote {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.5;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    border-left: 4px solid var(--blue);
+  }
+
+  .big-quote-light {
+    color: white;
+    border-left-color: #7ec8f5;
+  }
+
+  .highlight-blue {
+    color: var(--blue);
+    font-weight: 700;
+  }
+
+  .highlight-gold {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ── VALUE CARDS ── */
+  .value-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: #dde8f5;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .value-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .value-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .value-body {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ── RULE CARDS ── */
+  .rule-num {
+    width: 32px;
+    height: 32px;
+    background: var(--blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .rule-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    background: white;
+    border: 1.5px solid #e5e7eb;
+  }
+
+  .rule-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .rule-item p {
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+
+  /* ── RISK TABLE ── */
+  .risk-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .risk-danger {
+    background: #fff5f5;
+    border: 1.5px solid #fecaca;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  .risk-safe {
+    background: #f0fdf4;
+    border: 1.5px solid #bbf7d0;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  .risk-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .risk-danger .risk-label { color: #dc2626; }
+  .risk-safe .risk-label { color: #16a34a; }
+
+  .risk-items { font-size: 0.85rem; color: #374151; line-height: 1.8; }
+
+  /* ── STORY CARDS ── */
+  .story-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1.5px solid #e5e7eb;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .story-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+  }
+
+  .story-header {
+    background: linear-gradient(135deg, var(--blue-light), white);
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .story-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 0.25rem;
+  }
+
+  .story-subtitle {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+
+  .story-body {
+    padding: 1.5rem;
+    font-size: 0.88rem;
+    color: #374151;
+    line-height: 1.75;
+  }
+
+  .story-quote {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--blue-light);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  /* ── CHECKLIST ── */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    border: 2px solid var(--blue);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .check-item span { font-size: 0.88rem; color: #374151; }
+
+  /* ── BADGE GRID ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid #bcd9f0;
+  }
+
+  .badge-warn {
+    background: #fffbeb;
+    color: #92400e;
+    border-color: #fcd34d;
+  }
+
+  .badge-danger {
+    background: #fff5f5;
+    color: #991b1b;
+    border-color: #fecaca;
+  }
+
+  .badge-green {
+    background: #f0fdf4;
+    color: #166534;
+    border-color: #bbf7d0;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.6rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), #bcd9f0);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -1.55rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+
+  .timeline-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .timeline-content {
+    background: white;
+    border: 1.5px solid #e5e7eb;
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+
+  .timeline-content h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+  .timeline-content p { font-size: 0.83rem; color: var(--gray); }
+
+  /* ── FORMATION ── */
+  .formation-visual {
+    background: linear-gradient(135deg, #0d2a4a, #1a4a7a);
+    border-radius: var(--radius);
+    padding: 2rem;
+    color: white;
+    text-align: center;
+  }
+
+  .formation-grid {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .rider {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .rider-left { background: rgba(46,139,213,0.5); border: 2px solid var(--blue-mid); }
+  .rider-right { background: rgba(46,139,213,0.3); border: 2px dashed #7ec8f5; margin-top: 18px; }
+
+  /* ── HOTEL TABLE ── */
+  .hotel-table { width: 100%; border-collapse: collapse; }
+  .hotel-table th {
+    background: var(--navy);
+    color: white;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    text-align: left;
+    font-weight: 600;
+  }
+  .hotel-table td {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .hotel-table tr:nth-child(even) td { background: #f9fafb; }
+  .hotel-table tr:hover td { background: var(--blue-light); }
+  .hotel-table th:first-child, .hotel-table td:first-child {
+    width: 40px;
+    color: var(--blue);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /* ── RIDE SMART ── */
+  .ride-card {
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    border: 1.5px solid #e5e7eb;
+    background: white;
+  }
+
+  .ride-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .ride-title { font-weight: 700; color: var(--navy); font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .ride-body { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+
+  /* ── CLOSING BANNER ── */
+  .closing {
+    background: linear-gradient(135deg, var(--navy), #1a4a7a);
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+
+  .closing h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .closing h2 span { color: #7ec8f5; }
+  .closing p { font-size: 1rem; opacity: 0.8; max-width: 500px; margin: 0 auto; }
+
+  /* ── SCROLL ANIMATION ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .risk-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .formation-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ── PRINT / ANCHOR OFFSET ── */
+  :target::before {
+    content: '';
+    display: block;
+    height: 70px;
+    margin-top: -70px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">1919 愛走動</a>
+    <ul class="nav-links">
+      <li><a href="#vision">價值宣言</a></li>
+      <li><a href="#stories">勇士故事</a></li>
+      <li><a href="#before-join">加入前須知</a></li>
+      <li><a href="#rules">紀律規範</a></li>
+      <li><a href="#safety">安全規範</a></li>
+      <li><a href="#formation">騎乘隊形</a></li>
+      <li><a href="#ebike">電輔車</a></li>
+      <li><a href="#daily">每日 SOP</a></li>
+      <li><a href="#ride-smart">Ride Smart</a></li>
+      <li><a href="#risks">風險清單</a></li>
+      <li><a href="#itinerary">行程規劃</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">2026 單車環台 · 完整勇士手冊</div>
+  <h1>我們在乎，<br><span>所以我們在。</span></h1>
+  <p>1919 勇士，不是一場單車活動，而是一群人，選擇用行動回應急難家庭的需要。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">15</div><div class="label">天環台旅程</div></div>
+    <div class="hero-stat"><div class="num">1300</div><div class="label">公里</div></div>
+    <div class="hero-stat"><div class="num">12/19</div><div class="label">2026出發</div></div>
+    <div class="hero-stat"><div class="num">1/2</div><div class="label">2027抵達</div></div>
+
+  </div>
+</section>
+
+<!-- TOC -->
+<div class="toc-section">
+  <div class="toc-grid">
+    <a href="#vision" class="toc-card"><span class="toc-icon">💎</span>勇士價值宣言</a>
+    <a href="#stories" class="toc-card"><span class="toc-icon">🏅</span>勇士故事</a>
+    <a href="#before-join" class="toc-card"><span class="toc-icon">📋</span>加入前須知</a>
+    <a href="#rules" class="toc-card"><span class="toc-icon">⏰</span>時間紀律</a>
+    <a href="#safety" class="toc-card"><span class="toc-icon">🛡️</span>安全行車規範</a>
+    <a href="#formation" class="toc-card"><span class="toc-icon">🚴</span>兩路騎乘隊形</a>
+    <a href="#ebike" class="toc-card"><span class="toc-icon">⚡</span>電輔車管理</a>
+    <a href="#daily" class="toc-card"><span class="toc-icon">📝</span>每日出發 SOP</a>
+    <a href="#ride-smart" class="toc-card"><span class="toc-icon">🧠</span>Ride Smart</a>
+    <a href="#risks" class="toc-card"><span class="toc-icon">⚠️</span>最終風險清單</a>
+    <a href="#itinerary" class="toc-card"><span class="toc-icon">🗺️</span>2026 行程規劃</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- 1. VISION + VALUES（合併）-->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-white" id="vision">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">💎 Section 01</div>
+      <h2 class="section-title">1919 勇士價值宣言</h2>
+      <p class="section-subtitle">Warriors Value Statement · 我們是誰、為何而來、如何同行</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+    <div style="background:var(--navy);border-radius:var(--radius);padding:2rem 2.5rem;margin-bottom:2.5rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;right:-1rem;top:-1rem;font-size:8rem;opacity:0.05;line-height:1;">🚴</div>
+      <p style="font-size:0.8rem;color:#7ec8f5;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">我們為何而來</p>
+      <p style="font-family:'Noto Serif TC',serif;font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:700;color:white;line-height:1.65;margin-bottom:1rem;">
+        1919 勇士，不是一場單車活動，<br>
+        而是一群人，選擇用行動回應急難家庭的需要。
+      </p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;">
+        我們騎車，不是為了挑戰距離；我們募款，不是為了證明自己；<br>
+        我們存在的目的只有一個——讓真正需要幫助的家庭，不被忽略。
+      </p>
+    </div>
+
+    <!-- 五大價值主張 -->
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;">
+
+      <!-- V1 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:0;border:1.5px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:var(--blue);color:white;width:52px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.4rem;flex-shrink:0;">01</div>
+        <div style="padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--blue);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;">募款觀</div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">募款，是使命，不是比較。</h3>
+          <p style="font-size:0.85rem;color:#374151;line-height:1.7;">每一份捐款，無論金額多寡，只要出於真心，都值得尊重。我們不以金額定義人的價值，也不以能力衡量人的心。</p>
+          <p style="margin-top:0.5rem;font-size:0.83rem;color:var(--blue);font-weight:700;font-style:italic;">Focus on your heart — because that's where it starts.</p>
+        </div>
+      </div>
+
+      <!-- V2 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:0;border:1.5px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:var(--blue);color:white;width:52px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.4rem;flex-shrink:0;">02</div>
+        <div style="padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--blue);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;">承擔觀</div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">真心不應被比較，但承擔，值得被看見。</h3>
+          <p style="font-size:0.85rem;color:#374151;line-height:1.7;">當有人願意在體力之外，再多扛一份責任、為更多家庭多走一步，我們選擇向他的承擔致敬。這不是高低之分，而是角色不同、責任不同。</p>
+          <div style="margin-top:0.5rem;padding:0.6rem 0.9rem;border-left:3px solid var(--blue);background:#f8fbff;border-radius:0 6px 6px 0;">
+            <p style="font-size:0.83rem;font-weight:600;color:var(--navy);">有人陪跑，有人領跑；有人同行，有人扛重。缺一不可。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- V3 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:0;border:1.5px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:var(--blue);color:white;width:52px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.4rem;flex-shrink:0;">03</div>
+        <div style="padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--blue);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;">結果觀</div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">我們重視人心，但我們不逃避結果。</h3>
+          <p style="font-size:0.85rem;color:#374151;line-height:1.7;">因為急難家庭，等的不是感動，而是<strong>實際的幫助</strong>。結果不是壓力，而是對需要被幫助的人，最基本的負責。</p>
+          <p style="margin-top:0.5rem;font-size:0.83rem;color:var(--blue);font-weight:700;font-style:italic;">Respect the result — because that's who we serve.</p>
+        </div>
+      </div>
+
+      <!-- V4 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:0;border:1.5px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:var(--blue);color:white;width:52px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.4rem;flex-shrink:0;">04</div>
+        <div style="padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--blue);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;">約定</div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">我們彼此之間的約定</h3>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:0.5rem 0;">
+            <span style="background:var(--blue-light);color:var(--blue);font-size:0.8rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:100px;border:1px solid #bcd9f0;">不比較、不標籤、不論斷</span>
+            <span style="background:var(--blue-light);color:var(--blue);font-size:0.8rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:100px;border:1px solid #bcd9f0;">尊重每一位勇士的付出方式</span>
+            <span style="background:var(--blue-light);color:var(--blue);font-size:0.8rem;font-weight:600;padding:0.3rem 0.75rem;border-radius:100px;border:1px solid #bcd9f0;">彼此扶持，而不是彼此消耗</span>
+          </div>
+          <p style="font-size:0.85rem;color:#374151;">真正的團隊，不是每個人都一樣，而是每個人都站在自己的位置上。</p>
+        </div>
+      </div>
+
+      <!-- V5 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:0;border:1.5px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;">
+        <div style="background:var(--blue);color:white;width:52px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:1.4rem;flex-shrink:0;">05</div>
+        <div style="padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;color:var(--blue);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;">核心信念</div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">心與結果，我們同時守住。</h3>
+          <p style="font-size:0.85rem;color:#374151;line-height:1.7;">公益若只有心，卻沒有結果，會辜負需要幫助的人。公益若只剩結果，卻沒有心，會失去靈魂。<strong>1919 勇士，選擇同時守住這兩件事。</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 收尾金句 -->
+    <div style="background:linear-gradient(135deg,var(--blue-light),white);border:1.5px solid #bcd9f0;border-radius:var(--radius);padding:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px;">
+        <p style="font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:900;color:var(--navy);line-height:1.4;margin-bottom:0.5rem;">我們在乎，<br>所以我們在。</p>
+        <p style="font-size:0.88rem;color:var(--gray);">我們願意承擔，因為他們正在等待。</p>
+        <p style="font-size:0.78rem;color:var(--blue);font-style:italic;margin-top:0.25rem;">— 1919 Warriors</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:#374151;"><span>🤝</span> 走進急難家庭，修繕房屋</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:#374151;"><span>🎁</span> 送出食物包，帶去真實關懷</div>
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:#374151;"><span>❤️</span> 讓需要幫助的家庭，不被忽略</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- STORIES 勇士故事（壓軸）-->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-white" id="stories">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">🏅 Section 02</div>
+      <h2 class="section-title">勇士故事精華版</h2>
+      <p class="section-subtitle">用行動回應使命 · 每一種參與方式，都是真實的勇士</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-3">
+      <div class="story-card">
+        <div class="story-header">
+          <div class="story-title">劉光起</div>
+          <div class="story-subtitle">即使不能上路，仍與車隊同行</div>
+        </div>
+        <div class="story-body">
+          <p>上一任隊長 <strong>劉光起</strong>，原本計畫再次騎乘，卻因摔車受傷無法參與。</p>
+          <p style="margin-top:0.75rem;">不能騎車，並沒有讓他離開車隊。在環島期間，他持續與勇士們互動、關心進度，用陪伴與支持，成為車隊背後最穩定的力量。</p>
+          <div class="story-quote">「真正的勇士，不一定在路上，但一定在我們身旁。」</div>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-header">
+          <div class="story-title">周冠閎</div>
+          <div class="story-subtitle">不能全程，仍然全心</div>
+        </div>
+        <div class="story-body">
+          <p><strong>周冠閎</strong> 因時間無法配合完整行程，轉為募款勇士。</p>
+          <p style="margin-top:0.75rem;">他選擇用自己最擅長的方式支持團隊——在 <strong>西湖度假村</strong>，安排同業夥伴為勇士們提供肌肉舒緩與放鬆，讓大家在長途騎乘後，能真正恢復體力、再出發。</p>
+          <div class="story-quote">「參與的方式不同，心是一樣的。」</div>
+        </div>
+      </div>
+      <div class="story-card">
+        <div class="story-header">
+          <div class="story-title">吳丹鳳</div>
+          <div class="story-subtitle">在最忙的時刻，為公益留下時間</div>
+        </div>
+        <div class="story-body">
+          <p><strong>吳丹鳳</strong>，瓦城基金會執行長，正值瓦城泰國菜即將於 <strong>洛杉磯</strong> 開設美國第一家門市的關鍵時刻。</p>
+          <p style="margin-top:0.75rem;">即便行程緊湊，她仍親自騎乘第 1 天到第 4 天，在完成騎乘後，隔天便飛往美國，繼續肩負企業與團隊的重任。她同時募得 <strong>300 多萬元</strong>。</p>
+          <div class="story-quote">「公益不是等有空才做，而是把重要的事，放進最忙的行程裡。」</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:2rem;background:linear-gradient(135deg,var(--navy),#1a4a7a);border-radius:var(--radius);color:white;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:900;color:#7ec8f5;margin-bottom:1rem;">🏆 1919 勇士的共同答案</h3>
+      <p style="font-size:1.05rem;font-weight:700;margin-bottom:0.75rem;">勇士，不只是一個角色，而是一個選擇。</p>
+      <p style="font-size:0.88rem;opacity:0.8;line-height:1.7;">選擇付出、選擇承擔、選擇在不同的位置，用最真實的方式回應需要。這，就是 1919 勇士。</p>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+<!-- ═══════════════════════════════════ -->
+<!-- BEFORE JOIN 加入前須知 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-warm" id="before-join">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">📋 Section 03</div>
+      <h2 class="section-title">成為 1919 勇士前，請你先知道這些事</h2>
+      <p class="section-subtitle">1919，不只是一趟騎車的旅程。它是一段為了他人而前行的路。<br>我們希望每一位加入的勇士，都能自在參與、沒有壓力，卻願意負責任地走完全程。</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-2" style="gap:1.5rem;">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+          <div style="width:32px;height:32px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;">1</div>
+          <h3 style="font-weight:700;color:var(--navy);">募款，是使命的一部分</h3>
+        </div>
+        <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;">募款不是比金額，也不是比誰厲害。我們在意的是：</p>
+        <div class="check-item"><div class="check-dot"></div><span>你是否願意開口</span></div>
+        <div class="check-item"><div class="check-dot"></div><span>你是否願意分享這段旅程的意義</span></div>
+        <div class="check-item"><div class="check-dot"></div><span>你是否願意持續嘗試</span></div>
+        <p style="margin-top:0.75rem;font-size:0.88rem;font-weight:700;color:var(--blue);">👉 用心，比數字更重要。</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+          <div style="width:32px;height:32px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;">2</div>
+          <h3 style="font-weight:700;color:var(--navy);">騎車，不求快，只求穩</h3>
+        </div>
+        <div style="background:var(--blue-light);border-radius:8px;padding:1rem;margin-bottom:0.75rem;">
+          <p style="font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">1919 不追求速度，也不比較體能。我們在意的是：</p>
+          <div class="check-item"><div class="check-dot"></div><span>安全完成每天的行程</span></div>
+          <div class="check-item"><div class="check-dot"></div><span>願意配合領騎與團隊節奏</span></div>
+        </div>
+        <p style="font-size:0.88rem;font-weight:700;color:var(--blue);">👉 穩定，比快更重要。</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+          <div style="width:32px;height:32px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;">3</div>
+          <h3 style="font-weight:700;color:var(--navy);">我們不只是騎車</h3>
+        </div>
+        <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;">除了騎車，我們也會：</p>
+        <div class="check-item"><div class="check-dot"></div><span>走進教會</span></div>
+        <div class="check-item"><div class="check-dot"></div><span>參與案家修繕</span></div>
+        <div class="check-item"><div class="check-dot"></div><span>一起送出食物包</span></div>
+        <p style="margin-top:0.75rem;font-size:0.88rem;font-weight:700;color:var(--blue);">👉 付出，是勇士的靈魂。</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+          <div style="width:32px;height:32px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;">4</div>
+          <h3 style="font-weight:700;color:var(--navy);">約騎，是彼此熟悉的開始</h3>
+        </div>
+        <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;">平日的約騎不是考試，而是讓大家：</p>
+        <div class="check-item"><div class="check-dot"></div><span>學習安全</span></div>
+        <div class="check-item"><div class="check-dot"></div><span>熟悉彼此</span></div>
+        <div class="check-item"><div class="check-dot"></div><span>建立信任</span></div>
+        <p style="margin-top:0.75rem;font-size:0.88rem;font-weight:700;color:var(--blue);">👉 願意出現，就是最好的態度。</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
+          <div style="width:32px;height:32px;background:var(--blue);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;">5</div>
+          <h3 style="font-weight:700;color:var(--navy);">團練，我們會刻意騎慢</h3>
+        </div>
+        <div style="background:var(--blue-light);border-radius:8px;padding:1rem;">
+          <p style="font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">團練不是比誰強，而是學習：隊形、節奏、照顧彼此</p>
+          <p style="font-size:0.85rem;color:#374151;">有時候，刻意慢下來，是為了讓大家走得更遠。</p>
+          <p style="margin-top:0.5rem;font-size:0.85rem;font-weight:700;color:var(--blue);">👉 能慢下來的人，才適合走完全程。</p>
+        </div>
+      </div>
+      <div class="card card-navy" style="display:flex;flex-direction:column;justify-content:center;">
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:900;margin-bottom:1rem;line-height:1.4;">1919 要的不是最強的騎士，<span style="color:#7ec8f5;">而是願意一起完成使命的勇士。</span></h3>
+        <p style="font-size:0.88rem;opacity:0.8;">如果你認同這些理念，無論你是快或慢、強或新手，我們都真心歡迎你。</p>
+        <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.1);border-radius:8px;border-left:3px solid #7ec8f5;">
+          <p style="font-size:0.85rem;opacity:0.8;">如果你讀完後，覺得「現在的自己還沒準備好」，那也沒有關係。願意誠實面對自己，本身就是一種成熟。</p>
+          <p style="margin-top:0.5rem;font-size:0.85rem;color:#7ec8f5;font-weight:700;">1919，永遠為對的時候，留下位置。</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:1.5rem;background:white;border-radius:var(--radius);border:1.5px solid #e5e7eb;">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1rem;">🚴 從約騎、到團練、到出發</h3>
+      <div class="grid-3">
+        <div style="text-align:center;padding:1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🚲</div>
+          <div style="font-size:0.85rem;font-weight:700;color:var(--blue);margin-bottom:0.25rem;">約騎</div>
+          <div style="font-size:0.8rem;color:var(--gray);">是學會騎車</div>
+        </div>
+        <div style="text-align:center;padding:1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">👥</div>
+          <div style="font-size:0.85rem;font-weight:700;color:var(--blue);margin-bottom:0.25rem;">團練</div>
+          <div style="font-size:0.8rem;color:var(--gray);">是學會一起騎</div>
+        </div>
+        <div style="text-align:center;padding:1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;">🏁</div>
+          <div style="font-size:0.85rem;font-weight:700;color:var(--blue);margin-bottom:0.25rem;">出發</div>
+          <div style="font-size:0.8rem;color:var(--gray);">是把一切交出去</div>
+        </div>
+      </div>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 5. RULES 時間紀律 + 守時宣言 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-white" id="rules">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">⏰ Section 04</div>
+      <h2 class="section-title">我們如何對待時間</h2>
+      <p class="section-subtitle">守時，是對彼此最基本的在乎。不浪費別人的光陰，是 1919 車隊最基本的紀律。一個人遲到，影響的是整個團隊。</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
+      <div class="rule-item">
+        <div class="rule-num">1</div>
+        <div>
+          <h4>守時，是對彼此最基本的在乎</h4>
+          <p>不浪費別人的光陰，是 1919 車隊最基本的紀律。一個人遲到，影響的是整個團隊。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">2</div>
+        <div>
+          <h4>凡是和時間有關的事，記得提前準備好</h4>
+          <p>凡會影響行程的事項，都要在集合前準備好。不把準備時間，放在大家等候的時候。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">3</div>
+        <div>
+          <h4>時間說好了，就一起守住它</h4>
+          <p>集合、停留、出發，時間清楚就照表進行。不臨時延長、不臨時更改。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">4</div>
+        <div>
+          <h4>讓制度說話，這樣關係才不會受傷</h4>
+          <p>吹哨、倒數、報到，是為了公平，不是為了催促。制度在，關係就不會受傷。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">5</div>
+        <div>
+          <h4>我們彼此提醒，不是催促，是照顧</h4>
+          <p>提醒不是指責，是彼此照顧。確保沒有人落單，也沒有人拖慢。</p>
+        </div>
+      </div>
+    </div>
+    <div style="padding:2rem;background:linear-gradient(135deg,#f8fbff,white);border-radius:var(--radius);border:1.5px solid #bcd9f0;">
+      <p style="font-size:0.8rem;color:var(--gray);margin-bottom:0.5rem;">一句總結</p>
+      <p style="font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:900;color:var(--navy);line-height:1.5;">我們守時間，不是因為規定，<br>而是因為在乎每一位同行的勇士。</p>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 6. SAFETY 車隊行進規範 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-warm" id="safety">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">🛡️ Section 05</div>
+      <h2 class="section-title">在路上，我們怎麼照顧彼此</h2>
+      <p class="section-subtitle">2026/12/19 – 2027/1/2 · 我們不比快、不硬撐，15 天都穩穩完成使命。</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-2" style="gap:1.5rem;margin-bottom:2rem;">
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;font-size:1.1rem;">如果有人跟不上</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div class="card card-blue">
+            <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.4rem;">先輕聲提醒</h4>
+            <p style="font-size:0.85rem;color:#374151;">小組長若發現組員落隊「超過 5 公尺以上」，應立即提醒該組員「加快速度跟上隊伍」。</p>
+          </div>
+          <div class="card card-blue">
+            <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.4rem;">如果還是跟不上</h4>
+            <p style="font-size:0.85rem;color:#374151;">若組員仍持續落隊，應提醒其「靠右行駛」，由主隊從「左側安全超車」。</p>
+          </div>
+          <div class="card card-blue">
+            <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.4rem;">押騎會陪在旁邊</h4>
+            <p style="font-size:0.85rem;color:#374151;">落隊組員將由押騎陪同，協助其持續騎乘；若無法繼續，押騎可安排其上行政車休息。</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;font-size:1.1rem;">超車，只有一個方向</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div class="card">
+            <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.4rem;">一律從左側超車</h4>
+            <p style="font-size:0.85rem;color:#374151;">所有超車行為「一律由左側超車」，不得從右側超車。</p>
+          </div>
+          <div class="card">
+            <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.4rem;">等車隊停下來，再歸隊</h4>
+            <p style="font-size:0.85rem;color:#374151;">落隊組員僅可於「車隊停下時重新歸隊」，行進間嚴禁私自加速或穿插超車，以免發生碰撞或危險。</p>
+          </div>
+          <div style="background:#fff5f5;border:1.5px solid #fecaca;border-radius:var(--radius);padding:1rem;display:flex;gap:0.5rem;">
+            <span>📌</span>
+            <p style="font-size:0.85rem;font-weight:700;color:#991b1b;">記得：超車的方式，關係到每一個人的安全。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:1.5rem;background:var(--navy);border-radius:var(--radius);color:white;text-align:center;">
+      <p style="font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:700;">1919，不求完美、不逞強、不比較。<br>我們彼此照顧，一起平安回家。</p>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 8. FORMATION 兩路騎乘隊形 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-warm" id="formation">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">🚴 Section 06</div>
+      <h2 class="section-title">怎麼並肩騎，才能一起平安</h2>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-2" style="gap:2rem;align-items:start;">
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;">兩路騎乘＝左右前後交叉<br><span style="font-size:0.9rem;color:var(--gray);">(Staggered Formation)</span></h3>
+        <p style="font-size:0.88rem;color:#374151;margin-bottom:1rem;">兩路騎乘時，必須採「<strong style="color:#dc2626;">左右前後交叉</strong>」隊形，不得並排齊頭。</p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+          <div class="card card-blue">
+            <p style="font-size:0.85rem;font-weight:600;color:var(--navy);">左線與右線 前後錯開<strong>半個車身以上</strong></p>
+          </div>
+          <div class="card card-blue">
+            <p style="font-size:0.85rem;font-weight:600;color:var(--navy);">任一位勇士的前輪 <span style="color:#dc2626;">不可</span>與隔壁同排騎士的前輪齊平</p>
+          </div>
+          <div class="card card-blue">
+            <p style="font-size:0.85rem;font-weight:600;color:var(--navy);">從上方看呈現「之」字形排列</p>
+          </div>
+        </div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">為什麼一定要交叉？（安全三大理由）</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div class="card" style="display:flex;gap:0.75rem;align-items:start;">
+            <div style="width:28px;height:28px;background:#dde8f5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">1</div>
+            <div>
+              <p style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem;">🛡️ 預留緊急反應空間</p>
+              <p style="font-size:0.8rem;color:var(--gray);">前方騎士急煞、閃避坑洞或障礙物，後方可直接向前方空位修正路線，避免左右互撞、連環倒車。</p>
+            </div>
+          </div>
+          <div class="card" style="display:flex;gap:0.75rem;align-items:start;">
+            <div style="width:28px;height:28px;background:#dde8f5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">2</div>
+            <div>
+              <p style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem;">⚠️ 降低風險疊加</p>
+              <p style="font-size:0.8rem;color:var(--gray);">並排齊頭時，一人失控＝兩人一起出事。交叉隊形可分散風險、不同步倒車。</p>
+            </div>
+          </div>
+          <div class="card" style="display:flex;gap:0.75rem;align-items:start;">
+            <div style="width:28px;height:28px;background:#dde8f5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:var(--blue);flex-shrink:0;">3</div>
+            <div>
+              <p style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem;">🛣️ 有效利用車道寬度</p>
+              <p style="font-size:0.8rem;color:var(--gray);">保持「看起來整齊，但實際保有逃生空間」。對汽車駕駛而言，清楚辨識為「受控、有紀律的車隊」。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="formation-visual" style="margin-bottom:1.5rem;">
+          <p style="font-size:0.8rem;opacity:0.7;margin-bottom:1rem;">隊形示意（從後方俯視）</p>
+          <div style="display:flex;justify-content:center;align-items:center;gap:2rem;">
+            <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;">
+              <div class="rider rider-left">🚴</div>
+              <div class="rider rider-left">🚴</div>
+              <div class="rider rider-left">🚴</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:center;margin-top:20px;">
+              <div class="rider rider-right">🚴</div>
+              <div class="rider rider-right">🚴</div>
+              <div class="rider rider-right">🚴</div>
+            </div>
+          </div>
+          <p style="font-size:0.75rem;opacity:0.6;margin-top:1rem;">左線與右線前後錯開半個車身以上 ↕</p>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">請避免這些情況</h4>
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:#dc2626;"><span>✗</span> 左右齊頭並排</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:#dc2626;"><span>✗</span> 為聊天刻意靠近</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:#dc2626;"><span>✗</span> 無視前後間距自行調整位置</div>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">領騎和小組長可以這樣做</h4>
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:#16a34a;"><span>✓</span> 出現並排齊頭 → <strong>立即口頭提醒調整</strong></div>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:#16a34a;"><span>✓</span> 路況複雜時 → 可短暫指示「兩路交叉拉開」或「轉一路」</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:1rem;background:var(--navy);border-radius:var(--radius);color:white;">
+          <p style="font-size:0.88rem;font-weight:700;line-height:1.5;">「兩路不是並排，是左右前後交叉；<br>保留空間，就是保命。」</p>
+        </div>
+      </div>
+    </div></div>
+    <div style="margin-top:3rem;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:1rem;">關於飲酒，我們希望你理解這件事</h3>
+      <div style="background:#fff5f5;border:2px solid #fecaca;border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;">
+        <p style="font-size:0.9rem;font-weight:700;color:#991b1b;">1919 環島行動期間，我們希望所有勇士避免在公開場合飲酒。</p>
+        <p style="font-size:0.83rem;color:#374151;margin-top:0.5rem;">這不是道德批判，而是因為我們代表的，是捐款人的信任、案家的尊嚴，與整個行動的公信力。</p>
+      </div>
+      <div class="grid-2" style="gap:1rem;margin-bottom:1rem;">
+        <div class="card">
+          <h4 style="font-size:0.9rem;font-weight:700;color:#991b1b;margin-bottom:0.75rem;">什麼情況下不適合喝酒</h4>
+          <div class="check-item"><div class="check-dot" style="border-color:#ef4444;background:#fff5f5;"></div><span>穿著識別裝備（1919 車衣、隊服、識別裝備）時</span></div>
+          <div class="check-item"><div class="check-dot" style="border-color:#ef4444;background:#fff5f5;"></div><span>車隊集體行程中（包含騎乘、補給、拜訪教會等）</span></div>
+          <div class="check-item"><div class="check-dot" style="border-color:#ef4444;background:#fff5f5;"></div><span>公開平台場合（可能被拍照錄影的場合）</span></div>
+          <div class="check-item"><div class="check-dot" style="border-color:#ef4444;background:#fff5f5;"></div><span>與外界互動期間（教會、企業、媒體、民眾）</span></div>
+          <p style="margin-top:0.5rem;font-size:0.8rem;font-weight:700;color:#dc2626;">不論時間、地點或酒量多少，這個場合下請選擇不喝。</p>
+        </div>
+        <div class="card">
+          <h4 style="font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.75rem;">如果發生了，我們會這樣處理</h4>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.75rem;">
+              <p style="font-size:0.8rem;font-weight:700;color:#166534;">第一次：立即提醒並記錄</p>
+            </div>
+            <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:0.75rem;">
+              <p style="font-size:0.8rem;font-weight:700;color:#92400e;">第二次：取消當日或隔日騎乘資格</p>
+            </div>
+            <div style="background:#fff5f5;border:1px solid #fecaca;border-radius:8px;padding:0.75rem;">
+              <p style="font-size:0.8rem;font-weight:700;color:#991b1b;">重大違規：立即請離車隊，轉為募款支持身分</p>
+            </div>
+          </div>
+          <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--gray);">不爭辯動機，只處理事實。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 7. EBIKE 電輔車管理 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-white" id="ebike">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">⚡ Section 07</div>
+      <h2 class="section-title">關於電輔車，我們的共識</h2>
+      <p class="section-subtitle">電輔車的管理，不是允不允許的問題，而是「如何確保整體車隊安全」的問題。</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card card-blue" style="text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🛡️</div>
+        <p style="font-size:0.85rem;font-weight:600;color:var(--navy);">保障所有隊員在團體騎行中的安全</p>
+      </div>
+      <div class="card card-blue" style="text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">🎵</div>
+        <p style="font-size:0.85rem;font-weight:600;color:var(--navy);">維持車隊行進節奏與隊形穩定</p>
+      </div>
+      <div class="card card-blue" style="text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:0.5rem;">⚠️</div>
+        <p style="font-size:0.85rem;font-weight:600;color:var(--navy);">避免因車種差異造成不可控風險</p>
+      </div>
+    </div>
+    <p style="font-size:0.9rem;font-weight:700;color:var(--blue);margin-bottom:1.5rem;">👉 安全比便利重要，團隊比個人優先。</p>
+
+    <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;">誰可以使用電輔車</h3>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card" style="border-top:3px solid var(--blue);">
+        <div style="font-size:1.1rem;font-weight:700;color:var(--blue);margin-bottom:0.75rem;">① 押騎人員</div>
+        <p style="font-size:0.85rem;color:#374151;">得因職責需要使用電輔車。</p>
+      </div>
+      <div class="card" style="border-top:3px solid #f59e0b;">
+        <div style="font-size:1.1rem;font-weight:700;color:#92400e;margin-bottom:0.75rem;">② 非押騎人員</div>
+        <p style="font-size:0.85rem;color:#374151;">如需使用電輔車，須依既有規範提出申請，並經「教練團」審核通過後，方可使用。</p>
+      </div>
+      <div class="card" style="border-top:3px solid #ef4444;">
+        <div style="font-size:1.1rem;font-weight:700;color:#991b1b;margin-bottom:0.75rem;">③ 不適合申請的情形</div>
+        <p style="font-size:0.85rem;color:#374151;">只是不想訓練、或想少出力而申請的；沒有意願配合車隊節奏與學習的。</p>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card">
+        <h4 style="font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">基本位置安排</h4>
+        <p style="font-size:0.83rem;color:var(--gray);">所有經核准使用之電輔車，<strong>統一安排於車隊最後方</strong></p>
+      </div>
+      <div class="card">
+        <h4 style="font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">具體位置說明</h4>
+        <p style="font-size:0.83rem;color:var(--gray);">不編入第六組，安排於：<strong style="color:var(--blue);">第六組之後、押騎之前的專屬位置</strong></p>
+      </div>
+      <div class="card">
+        <h4 style="font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">目的說明</h4>
+        <p style="font-size:0.83rem;color:var(--gray);">• 降低對主隊節奏之干擾<br>• 保護電輔車使用者與其他隊友的行車安全</p>
+      </div>
+    </div>
+
+    <div style="padding:1.5rem;background:#fffbeb;border:1.5px solid #fcd34d;border-radius:var(--radius);">
+      <p style="font-size:0.9rem;font-weight:700;color:var(--navy);">🔧 結語：電輔車可以是幫助隊友完成環台的工具</p>
+      <p style="font-size:0.85rem;color:#374151;margin-top:0.5rem;">但前提是：我們一起好好管理它，而不是各自為政。<br>讓每個人都平安，是我們對彼此最基本的責任。</p>
+    </div>
+  </div>
+
+</div>
+
+
+<hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 9. DAILY SOP -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-white" id="daily">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">📝 Section 08</div>
+      <h2 class="section-title">每一天出發前，我們一起確認</h2>
+      <p class="section-subtitle">1919 愛走動｜A4 手冊版</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-2" style="gap:2rem;">
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--blue);">出發前，請先確認這幾件事</h3>
+        <div style="background:var(--blue-light);border:1.5px solid #bcd9f0;border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;">
+          <h4 style="font-size:0.95rem;font-weight:700;color:var(--blue);margin-bottom:0.75rem;">個人裝備檢查</h4>
+          <div class="check-item"><div class="check-dot"></div><span>胎壓確認</span></div>
+          <div class="check-item"><div class="check-dot"></div><span>水壺一瓶（出發前需加滿）</span></div>
+          <div class="check-item"><div class="check-dot"></div><span>安全帽</span></div>
+          <div class="check-item"><div class="check-dot"></div><span>碼表、頭燈、尾燈已充電</span></div>
+          <div class="check-item"><div class="check-dot"></div><span>工具罐（內含：備用內胎、六角板手、挖胎棒、個人用品）</span></div>
+        </div>
+        <div style="background:var(--blue-light);border:1.5px solid #bcd9f0;border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem;">
+          <h4 style="font-size:0.95rem;font-weight:700;color:var(--blue);margin-bottom:0.75rem;">行李與房務</h4>
+          <div class="check-item"><div class="check-dot"></div><span>小行李及背包上車 👉 請親自交給同工</span></div>
+          <div class="check-item"><div class="check-dot"></div><span>房卡交回櫃檯</span></div>
+        </div>
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">集合與暖身</h4>
+        <div class="grid-2" style="gap:0.5rem;">
+          <div style="border:1px solid #e5e7eb;border-radius:8px;padding:0.6rem;font-size:0.8rem;text-align:center;font-weight:600;color:#374151;">① 將單車帶至一樓</div>
+          <div style="border:1px solid #e5e7eb;border-radius:8px;padding:0.6rem;font-size:0.8rem;text-align:center;font-weight:600;color:#374151;">② 使用洗手間</div>
+          <div style="border:1px solid #e5e7eb;border-radius:8px;padding:0.6rem;font-size:0.8rem;text-align:center;font-weight:600;color:#374151;">③ 做早操</div>
+          <div style="border:1px solid #e5e7eb;border-radius:8px;padding:0.6rem;font-size:0.8rem;text-align:center;font-weight:600;color:#374151;">④ 聽從集合指示</div>
+        </div>
+        <div style="margin-top:1rem;padding:1rem;background:white;border-radius:var(--radius);border:1.5px solid #e5e7eb;display:flex;gap:0.75rem;align-items:start;">
+          <span style="font-size:1.2rem;">✅</span>
+          <div>
+            <p style="font-size:0.9rem;font-weight:700;color:var(--navy);">準時出發</p>
+            <p style="font-size:0.83rem;color:var(--gray);">每位勇士為自己負責 · 不催促、不等待 · 尊重時間，就是尊重全隊</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--blue);">每天花 10 分鐘，把車照顧好</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div class="card card-blue">
+            <h4 style="font-size:0.9rem;font-weight:700;color:var(--blue);margin-bottom:0.4rem;">🔴 煞車系統</h4>
+            <p style="font-size:0.83rem;color:#374151;">使用噴槍清潔 前、後碟煞來令片</p>
+          </div>
+          <div class="card card-blue">
+            <h4 style="font-size:0.9rem;font-weight:700;color:var(--blue);margin-bottom:0.4rem;">⛓️ 傳動系統</h4>
+            <p style="font-size:0.83rem;color:#374151;">清潔鏈條：使用清潔液 清潔鏈條<br>鏈條上蠟：保持傳動系統順暢</p>
+          </div>
+          <div class="card card-blue">
+            <h4 style="font-size:0.9rem;font-weight:700;color:var(--blue);margin-bottom:0.4rem;">🛞 輪胎</h4>
+            <p style="font-size:0.83rem;color:#374151;">輪胎打氣（依個人習慣胎壓）</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1.5rem;background:linear-gradient(135deg,var(--navy),#1a4a7a);border-radius:var(--radius);color:white;text-align:center;">
+          <div style="font-size:1.5rem;margin-bottom:0.75rem;">🔧</div>
+          <p style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">保養提醒</p>
+          <p style="font-size:0.85rem;opacity:0.85;line-height:1.7;">單車狀況良好，騎乘才安心<br>每天 10 分鐘保養，換來一整天順騎<br>保養不是為了騎快，是為了每個人都平安</p>
+        </div>
+      </div>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 10. RIDE SMART -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-warm" id="ride-smart">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">🧠 Section 09</div>
+      <h2 class="section-title">🚴 Ride Smart：怎麼騎得聰明又省力</h2>
+      <p class="section-subtitle">核心原則：省力、安全、團隊、完成</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-3" style="margin-bottom:2rem;">
+      <div class="ride-card">
+        <div class="ride-icon">⛰️</div>
+        <div class="ride-title">上坡準備</div>
+        <div class="ride-body">上坡前換小盤並提前加速，跟上隊伍節奏。提前換好檔位，避免在坡上換不了檔。</div>
+      </div>
+      <div class="ride-card">
+        <div class="ride-icon">⚡</div>
+        <div class="ride-title">利用慣性</div>
+        <div class="ride-body">保持速度衝過坡頂，避免在坡頂失速。用下坡帶來的動能延續前進，減少體力消耗。</div>
+      </div>
+      <div class="ride-card">
+        <div class="ride-icon">🛣️</div>
+        <div class="ride-title">平路鋪路</div>
+        <div class="ride-body">在平路加速預備，讓上坡更輕鬆。利用平路建立速度，為下一個坡段做準備。</div>
+      </div>
+      <div class="ride-card">
+        <div class="ride-icon">🎿</div>
+        <div class="ride-title">下坡智慧</div>
+        <div class="ride-body">下坡時提早準備下一個上坡，保持連貫節奏。利用下坡休息，同時為下個上坡保存體力。</div>
+      </div>
+      <div class="ride-card">
+        <div class="ride-icon">👑</div>
+        <div class="ride-title">領騎策略</div>
+        <div class="ride-body">領騎的停留點應選在平坡或下坡，避免讓隊員在坡頂或上坡處停下。</div>
+      </div>
+      <div class="ride-card">
+        <div class="ride-icon">🤝</div>
+        <div class="ride-title">小組長責任</div>
+        <div class="ride-body">小組長需提醒並協助體能較弱的組員，確保全員順利完賽。</div>
+      </div>
+    </div>
+    <div style="padding:2rem;background:linear-gradient(135deg,var(--navy),#1a6bb5);border-radius:var(--radius);color:white;text-align:center;">
+      <p style="font-size:0.8rem;opacity:0.7;margin-bottom:0.5rem;">精簡口號</p>
+      <p style="font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;">Ride Smart, Save Energy, Help Teammates, Finish Together.</p>
+      <p style="font-size:0.9rem;opacity:0.8;">有效騎乘、省力助人、全員完賽</p>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- 11. RISKS 最終風險清單 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-white" id="risks">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">⚠️ Section 10</div>
+      <h2 class="section-title">出發前，我們誠實面對這些事</h2>
+      <p class="section-subtitle">不是要嚇你，是希望每個人都平安回家。</p>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;">一、時間與節奏 <span style="background:#dde8f5;color:var(--blue);padding:0.2rem 0.6rem;border-radius:100px;font-size:0.72rem;font-weight:600;">最常發生</span></h3>
+        <div class="risk-row">
+          <div class="risk-danger">
+            <div class="risk-label">容易發生的狀況</div>
+            <div class="risk-items">• 個人慢半拍 → 全隊被拖慢<br>• 午餐後節奏鬆散<br>• 接近飯店自由加速</div>
+          </div>
+          <div class="risk-safe">
+            <div class="risk-label">我們的做法</div>
+            <div class="risk-items">• 吹哨＝行動，不討論<br>• 午餐後 <strong>5 分鐘內集合、直接上路</strong><br>• 未進飯店前，車隊仍在任務中</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">二、安全（結構性的問題，不只是提醒）</h3>
+        <div class="risk-row">
+          <div class="risk-danger">
+            <div class="risk-label">容易發生的狀況</div>
+            <div class="risk-items">• 自由超車<br>• 跟車距離過近<br>• 疲勞硬撐、不敢說</div>
+          </div>
+          <div class="risk-safe">
+            <div class="risk-label">我們的做法</div>
+            <div class="risk-items">• 絕對服從領騎／押騎／安全指令<br>• 不舒服 主動上補給車（成熟的選擇）<br>• 危險狀況可直接喊停，不需請示</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;">三、體能與情緒疲勞 <span style="background:#fff3cd;color:#92400e;padding:0.2rem 0.6rem;border-radius:100px;font-size:0.72rem;font-weight:600;">最容易被忽略</span></h3>
+        <div class="risk-row">
+          <div class="risk-danger">
+            <div class="risk-label">容易發生的狀況</div>
+            <div class="risk-items">• 表面撐得住，內心已耗盡<br>• 不敢示弱、怕被貼標籤<br>• 第 7–10 天情緒低潮</div>
+          </div>
+          <div class="risk-safe">
+            <div class="risk-label">我們的做法</div>
+            <div class="risk-items">• 上補給車 ≠ 放棄<br>• 疲勞可說出口，不需解釋<br>• 隊長與小組長 主動關心、不等回報</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">四、在公益現場，容易踩到的坑</h3>
+        <div class="risk-row">
+          <div class="risk-danger">
+            <div class="risk-label">容易發生的狀況</div>
+            <div class="risk-items">• 捐款金額被比較<br>• 分享變成炫耀<br>• 案家成為故事素材</div>
+          </div>
+          <div class="risk-safe">
+            <div class="risk-label">我們的做法</div>
+            <div class="risk-items">• 不公開比較金額<br>• 分享重「感受」不重「成果」<br>• 修繕是對案家尊嚴的回應</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">五、角色邊界（隊長最需要留意）</h3>
+        <div class="risk-row">
+          <div class="risk-danger">
+            <div class="risk-label">容易發生的狀況</div>
+            <div class="risk-items">• 所有情緒都往隊長丟<br>• 當下想解決所有問題<br>• 為了和氣而模糊原則</div>
+          </div>
+          <div class="risk-safe">
+            <div class="risk-label">我們的做法</div>
+            <div class="risk-items">• 隊長不是情緒垃圾桶<br>• 問題可記錄，非即時處理<br>• 原則一致，比關係舒服更重要</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:0.75rem;">六、成功之後，反而要小心這件事</h3>
+        <div class="risk-row">
+          <div class="risk-danger">
+            <div class="risk-label">容易發生的狀況</div>
+            <div class="risk-items">• 覺得「我們一直都很穩」<br>• 流程變成形式<br>• 忘記初衷與敬畏</div>
+          </div>
+          <div class="risk-safe">
+            <div class="risk-label">我們的做法</div>
+            <div class="risk-items">• 每天提醒：「我們不是來完成一件很厲害的事，是來一起做一件對的事。」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:2rem;background:var(--navy);border-radius:var(--radius);color:white;text-align:center;">
+      <p style="font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:900;line-height:1.5;">不求完美、不硬撐、不比較。<br><span style="color:#7ec8f5;">我們彼此照顧，一起平安回家。</span></p>
+    </div>
+    </div></div>
+
+</div></div><hr class="divider">
+
+
+<!-- ═══════════════════════════════════ -->
+<!-- ITINERARY 行程規劃 -->
+<!-- ═══════════════════════════════════ -->
+<div class="bg-warm" id="itinerary">
+  <div class="section fade-in">
+    <div class="section-header"><div class="section-header-text">
+      <div class="section-tag">🗺️ Section 11</div>
+      <h2 class="section-title">2026 年 1919 愛走動｜單車環台行程規劃重點</h2>
+    </div>
+    <a href="#hero" class="home-btn" title="回到頂部">🏠</a>
+</div>
+
+    <div class="grid-3" style="margin-bottom:2rem;">
+      <div class="card">
+        <div style="font-size:1.3rem;margin-bottom:0.75rem;">🧭</div>
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">行進方向</h4>
+        <p style="font-size:0.85rem;color:#374151;font-weight:700;color:var(--blue);margin-bottom:0.25rem;">逆時針環島</p>
+        <p style="font-size:0.83rem;color:var(--gray);">西岸先行，降低前段心理與體能壓力。東岸後段，體驗、感動與記憶點集中釋放。</p>
+      </div>
+      <div class="card">
+        <div style="font-size:1.3rem;margin-bottom:0.75rem;">⏱️</div>
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">每日騎乘節奏</h4>
+        <p style="font-size:0.83rem;color:#374151;"><strong>上午騎乘 60%</strong><br><strong>下午騎乘 40%</strong></p>
+        <p style="font-size:0.8rem;color:var(--gray);margin-top:0.35rem;">預留體力給：案家修繕、教會互動、募款分享、單車保養與休息</p>
+      </div>
+      <div class="card">
+        <div style="font-size:1.3rem;margin-bottom:0.75rem;">🏨</div>
+        <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">時間紀律</h4>
+        <p style="font-size:0.85rem;font-weight:700;color:var(--blue);">16:30 前入住飯店</p>
+        <p style="font-size:0.83rem;color:var(--gray);">傍晚時間固定用途：洗澡、洗衣、保養單車、晚餐、分享今日故事 → 募款行動。晚上不再拉行程，確保連續 15 天品質穩定。</p>
+      </div>
+    </div>    <div class="grid-2" style="gap:2rem;margin-bottom:2rem;">
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;">二、路線與難度設計邏輯</h3>
+        <div class="grid-2" style="gap:0.75rem;">
+          <div class="card card-blue">
+            <p style="font-size:0.8rem;font-weight:700;color:var(--blue);margin-bottom:0.35rem;">🚴 西岸（前段）</p>
+            <p style="font-size:0.8rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;">原則：降低騎乘難度</p>
+            <p style="font-size:0.78rem;color:var(--gray);">新勇士快速進入狀態、穩定團隊節奏、累積信心而不是消耗意志</p>
+          </div>
+          <div class="card card-blue">
+            <p style="font-size:0.8rem;font-weight:700;color:var(--blue);margin-bottom:0.35rem;">🏔️ 東岸（後段）</p>
+            <p style="font-size:0.8rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;">原則：風景 × 感動 × 記憶點</p>
+            <p style="font-size:0.78rem;color:var(--gray);">案家修繕、原民／地方教會互動、年終跨年情緒高點</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;">三、公益行動配置</h3>
+        <div class="grid-2" style="gap:0.75rem;">
+          <div class="card card-blue">
+            <p style="font-size:0.8rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;">🏠 案家修繕（2 次）</p>
+            <p style="font-size:0.78rem;color:var(--gray);">西岸：雲林 · 東岸：台東<br>不做體驗式，做「真的讓生活比較不辛苦」的修繕</p>
+          </div>
+          <div class="card card-blue">
+            <p style="font-size:0.8rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;">🎁 送食物包（2 次）</p>
+            <p style="font-size:0.78rem;color:var(--gray);">西岸一次 · 東岸一次<br>與教會或在地單位合作</p>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+    <h3 style="font-weight:700;color:var(--navy);margin-bottom:1rem;">五、住宿優先策略（逆時針順序）</h3>
+    <p style="font-size:0.85rem;color:var(--gray);margin-bottom:1rem;">原則：先訂飯店 → 再微調路線。不為距離犧牲整體體驗與士氣。</p>
+    <div style="background:white;border-radius:var(--radius);border:1.5px solid #e5e7eb;overflow:hidden;">
+      <table class="hotel-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>路段</th>
+            <th>住宿地點</th>
+            <th>備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>台北 – 新竹</td><td>新竹豐邑喜來登大飯店</td><td></td></tr>
+          <tr><td>2</td><td>新竹 – 苗栗</td><td>西湖渡假村</td><td></td></tr>
+          <tr><td>3</td><td>苗栗 – 台中</td><td>裕元花園酒店</td><td></td></tr>
+          <tr><td>4</td><td>台中 – 雲林</td><td>三好國際酒店</td><td></td></tr>
+          <tr><td>5</td><td>雲林 – 嘉義</td><td>新悅花園酒店</td><td></td></tr>
+          <tr><td>6</td><td>嘉義 – 台南</td><td>台南大員皇冠假日酒店</td><td>🎄 聖誕夜</td></tr>
+          <tr><td>7</td><td>台南 – 屏東</td><td>鮪魚家族飯店 屏東館</td><td></td></tr>
+          <tr><td>8</td><td>屏東 – 墾丁</td><td>H 會館</td><td></td></tr>
+          <tr><td>9</td><td>墾丁 – 台東</td><td>知本老爺酒店</td><td></td></tr>
+          <tr><td>10</td><td>台東 – 鹿野</td><td>鹿鳴溫泉酒店</td><td></td></tr>
+          <tr><td>11</td><td>鹿野 – 光復</td><td>光復糖廠</td><td></td></tr>
+          <tr><td>12</td><td>光復 – 新城</td><td>煙波花蓮太魯閣</td><td></td></tr>
+          <tr><td>13</td><td>新城 – 蘇澳</td><td>煙波大飯店 蘇澳四季雙泉館</td><td>🎆 跨年夜</td></tr>
+          <tr><td>14</td><td>蘇澳 – 礁溪</td><td>礁溪長榮鳳凰酒店</td><td></td></tr>
+          <tr><td>15</td><td>礁溪 – 台北</td><td>北宜公路回程</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:2rem;padding:2rem;background:linear-gradient(135deg,var(--blue),#1a4a7a);border-radius:var(--radius);color:white;text-align:center;">
+      <p style="font-size:0.8rem;opacity:0.7;margin-bottom:0.5rem;">一句話總結</p>
+      <p style="font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:900;margin-bottom:0.5rem;">2026，不是騎得更遠，<br>而是每一天都騎得值得。</p>
+      <p style="font-size:0.9rem;opacity:0.8;">節奏穩、情感深、公益真、記憶久。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CLOSING BANNER -->
+<div class="closing">
+  <h2>我們在乎，<br><span>所以我們在。</span></h2>
+  <p style="margin:1rem auto 0;">我們願意承擔，因為他們正在等待。<br>— 1919 Warriors</p>
+</div>
+
+<!-- Footer -->
+<footer style="background:#0d2a4a;color:rgba(255,255,255,0.4);text-align:center;padding:1.5rem;font-size:0.78rem;">
+  1919 愛走動｜2026 單車環台 12/19–1/2 · 所有內容僅供車隊成員參考使用
+</footer>
+
+<script>
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
